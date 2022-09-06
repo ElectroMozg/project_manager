@@ -1,0 +1,47 @@
+Removed Pin From Net: NetName=GND Pin=X2-1
+Removed Pin From Net: NetName=GND Pin=X2-1
+Removed Pin From Net: NetName=Boot Pin=X2-5
+Removed Pin From Net: NetName=Boot Pin=X2-5
+Removed Pin From Net: NetName=RPI_LED Pin=X2-6
+Removed Pin From Net: NetName=RPI_LED Pin=X2-6
+Removed Pin From Net: NetName=RST Pin=X2-7
+Removed Pin From Net: NetName=RST Pin=X2-7
+Removed Pin From Net: NetName=CS0 Pin=X2-8
+Removed Pin From Net: NetName=CS0 Pin=X2-8
+Removed Pin From Net: NetName=SPI_SCK Pin=X2-9
+Removed Pin From Net: NetName=SPI_SCK Pin=X2-9
+Removed Pin From Net: NetName=SPI_MISO Pin=X2-10
+Removed Pin From Net: NetName=SPI_MISO Pin=X2-10
+Removed Pin From Net: NetName=SPI_MOSI Pin=X2-11
+Removed Pin From Net: NetName=SPI_MOSI Pin=X2-11
+Removed Pin From Net: NetName=+5V Pin=X2-12
+Removed Pin From Net: NetName=+5V Pin=X2-12
+Change Component Designator: OldDesignator=X1 NewDesignator=*
+Added Pin To Net: NetName=+5V Pin=X2-1
+Added Pin To Net: NetName=+5V Pin=X2-1
+Added Pin To Net: NetName=SPI_MOSI Pin=X2-2
+Added Pin To Net: NetName=SPI_MOSI Pin=X2-2
+Added Pin To Net: NetName=SPI_MISO Pin=X2-3
+Added Pin To Net: NetName=SPI_MISO Pin=X2-3
+Added Pin To Net: NetName=SPI_SCK Pin=X2-4
+Added Pin To Net: NetName=SPI_SCK Pin=X2-4
+Added Pin To Net: NetName=CS0 Pin=X2-5
+Added Pin To Net: NetName=CS0 Pin=X2-5
+Added Pin To Net: NetName=RST Pin=X2-6
+Added Pin To Net: NetName=RST Pin=X2-6
+Added Pin To Net: NetName=RPI_LED Pin=X2-7
+Added Pin To Net: NetName=RPI_LED Pin=X2-7
+Added Pin To Net: NetName=Boot Pin=X2-8
+Added Pin To Net: NetName=Boot Pin=X2-8
+Added Pin To Net: NetName=GND Pin=X2-12
+Added Pin To Net: NetName=GND Pin=X2-12
+Added Pin To Net: NetName=NetX2_9 Pin=X2-9
+Added Pin To Net: NetName=NetX2_9 Pin=X2-9
+Added Net: Name=NetX2_9
+Added Pin To Net: NetName=NetX2_10 Pin=X2-10
+Added Pin To Net: NetName=NetX2_10 Pin=X2-10
+Added Net: Name=NetX2_10
+Added Pin To Net: NetName=NetX2_11 Pin=X2-11
+Added Pin To Net: NetName=NetX2_11 Pin=X2-11
+Added Net: Name=NetX2_11
+Change Class Name : Old Net Name=Connector_for_flat New Net Name=Adapter

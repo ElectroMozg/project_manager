@@ -1,0 +1,20 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of PCB Document [Adapter.PcbDoc]
+   Generated File[Adapter.GTO]
+   Generated File[Adapter.GTP]
+   Generated File[Adapter.GTS]
+   Generated File[Adapter.GTL]
+   Generated File[Adapter.GBL]
+   Generated File[Adapter.GBS]
+   Generated File[Adapter.GBP]
+   Generated File[Adapter.GBO]
+   Generated File[Adapter.GKO]
+   Generated File[Adapter.EXTREP]
+   Generated File[Adapter.REP]
+
+
+Files Generated   : 11
+Documents Printed : 0
+
+Finished Output Generation At 10:06:56 AM On 8/11/2022
