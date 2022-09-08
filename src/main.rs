@@ -3,116 +3,72 @@ use std::io;
 //use std::path::PathBuf;
 
 fn main() {
-    let mut project_path = String::new();
-    println!("Введите расположение проекта:");
-    io::stdin()
-        .read_line(&mut project_path)
-        .expect("Failed to read line");
-    project_path.pop();
-    project_path.pop();
 
-    let altium_gerber_path = format!("{}/Outputs/Gerber", project_path);
-    let altium_drill_path = format!("{}/Outputs/NC Drill", project_path);
-    let docs_path = format!("{}/RustTest", project_path);
+    // let mut project_path = String::new();
+    // println!("Введите расположение проекта:");
+    // io::stdin()
+    //     .read_line(&mut project_path)
+    //     .expect("Failed to read line");
+    // project_path.pop();
+    // project_path.pop();
+
+    // let altium_gerber_path = format!("{}/Outputs/Gerber", project_path);
+    // let altium_drill_path = format!("{}/Outputs/NC Drill", project_path);
+    // let docs_path = format!("{}/RustTest", project_path);
     //let name_project = find_name(&project_path);
 
     //copy_gerbers(&altium_gerber_path, &docs_path, &name_project);
     //copy_drills(&altium_drill_path, &docs_path, &name_project);
 }
 
-fn copy_gerbers(from: &str, to: &str, name: &str) {
-    fs::copy(
-        gerber_path(from, name, ".GBL"),
-        gerber_path(to, name, ".GBL"),
-    )
-    .unwrap();
-
-    fs::copy(
-        gerber_path(from, name, ".GBO"),
-        gerber_path(to, name, ".GBO"),
-    )
-    .unwrap();
-
-    fs::copy(
-        gerber_path(from, name, ".GBP"),
-        gerber_path(to, name, ".GBP"),
-    )
-    .unwrap();
-
-    fs::copy(
-        gerber_path(from, name, ".GBS"),
-        gerber_path(to, name, ".GBS"),
-    )
-    .unwrap();
-
-    fs::copy(
-        gerber_path(from, name, ".GKO"),
-        gerber_path(to, name, ".GKO"),
-    )
-    .unwrap();
-
-    fs::copy(
-        gerber_path(from, name, ".GTL"),
-        gerber_path(to, name, ".GTL"),
-    )
-    .unwrap();
-
-    fs::copy(
-        gerber_path(from, name, ".GTO"),
-        gerber_path(to, name, ".GTO"),
-    )
-    .unwrap();
-
-    fs::copy(
-        gerber_path(from, name, ".GTP"),
-        gerber_path(to, name, ".GTP"),
-    )
-    .unwrap();
-
-    fs::copy(
-        gerber_path(from, name, ".GTS"),
-        gerber_path(to, name, ".GTS"),
-    )
-    .unwrap();
-}
-
-fn copy_drills(from: &str, to: &str, name: &str) {
-    fs::copy(
-        gerber_path(from, name, ".TXT"),
-        gerber_path(to, name, ".TXT"),
-    )
-    .unwrap();
-}
-
-struct Gerber {
+pub struct Gerber {
     path_from: String,
     path_to: String,
-    project_name: String
+    project_name: String,
 }
 
 impl Gerber {
-    
     fn new(path_from: String, path_to: String) -> Gerber {
-        let project_name: String = Self::find_name(&path_from);
-        return Gerber{path_from, path_to, project_name};
+        let mut obj = Gerber {
+            path_from,
+            path_to,
+            project_name: String::new(),
+        };
+
+        obj.project_name = obj.find_name(&obj.path_from);
+        obj
     }
 
-    pub fn copy_gerbers(&self) {}
+    pub fn copy_gerbers(&self) {
+        self.copy_with_ext(".GBL");
+        self.copy_with_ext(".GBO");
+        self.copy_with_ext(".GBP");
+        self.copy_with_ext(".GBS");
+        self.copy_with_ext(".GKO");
+        self.copy_with_ext(".GTL");
+        self.copy_with_ext(".GTO");
+        self.copy_with_ext(".GTP");
+        self.copy_with_ext(".GTS");
+    }
 
-    pub fn copy_drills(&self) {
+    pub fn copy_drills(&mut self) {
+        self.copy_with_ext(".TXT");
+    }
+
+    fn copy_with_ext(&self, extension: &str) {
         fs::copy(
-            gerber_path(&self.path_from, &self.project_name, ".TXT"),
-            gerber_path(&self.path_to, &self.project_name, ".TXT"),
+            gerber_path(&self.path_from, &self.project_name, extension),
+            gerber_path(&self.path_to, &self.project_name, extension),
         )
         .unwrap();
     }
 
-    fn find_name(project_path: &str) -> String {
+    fn find_name(&self, project_path: &str) -> String {
         let mut name = "None".to_string();
-    
+
         for file in fs::read_dir(project_path).unwrap() {
             let file_name = file.unwrap().file_name().into_string().unwrap();
-    
+
             if file_name.contains(".PrjPcb") {
                 name = file_name.split('.').next().unwrap().to_string();
             }
